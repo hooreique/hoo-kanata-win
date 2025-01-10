@@ -20,7 +20,7 @@
   my_rctl (tap-hold-press-timeout 200 400 del rctl rctl))
 
 (defalias
-  my_caps (tap-hold-press 200 400 esc (layer-while-held mod))
+  my_caps (tap-hold-press 200 400 (multi f21 esc) (layer-while-held mod))
   my_spc (tap-hold-press-timeout 200 400 spc (layer-while-held mod) spc))
 
 (defalias
@@ -42,8 +42,8 @@
 (deflayer mod
   _ _ _ _ _ _ _ _ _ _ _ _ _ _
   esc f1 f2 f3 f4 f5 f6 f7 f8 f9 f10 f11 f12 del
-  _ _ _      @w_up _       _ _    pgup up   pgdn _ _ _ lrld
-  _ _ @w_lft @w_dn @w_rght _ home lft  down rght end _ (multi lsft ret)
+  _   _ _      @w_up _       _ _    pgup up   pgdn _ _ _ lrld
+  esc _ @w_lft @w_dn @w_rght _ home lft  down rght end _ (multi lsft ret)
   _ _ _ _ _ _ _ _ _ _ _ _
   _ _ _ _ _ _ _
   _ _ _ _ _ _ _ _
