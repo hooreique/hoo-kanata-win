@@ -9,15 +9,42 @@
   kp0)
 
 (defalias
-  z (tap-hold-release-timeout 200 200 z lctl z)
-  / (tap-hold-release-timeout 200 200 / rctl /))
+  my_z (tap-hold-release-timeout 200 400 z lctl z)
+  my_/ (tap-hold-release-timeout 200 400 / lctl /))
+
+(defalias
+  my_lsft (tap-hold-press-timeout 200 400 f21 lsft lsft)
+  my_ralt (tap-hold-press-timeout 200 400 f22 ralt ralt)
+  my_rsft (tap-hold-press-timeout 200 400 f23 rsft rsft)
+  my_rmet (tap-hold-press-timeout 200 400 f24 rmet rmet)
+  my_rctl (tap-hold-press-timeout 200 400 del rctl rctl))
+
+(defalias
+  my_caps (tap-hold-press 200 400 esc (layer-while-held mod))
+  my_spc (tap-hold-press-timeout 200 400 spc (layer-while-held mod) spc))
+
+(defalias
+  w_up (🖱☸↑ 50 120)
+  w_dn (🖱☸↓ 50 120)
+  w_lft (🖱☸← 50 120)
+  w_rght (🖱☸→ 50 120))
 
 (deflayer base
   _ _ _ _ _ _ _ _ _ _ _ _ _ _
   _ _ _ _ _ _ _ _ _ _ _ _ _ _
-  _ q w f p g j l u y ; _ _ _
-  esc a r s t d h n e i o _ _
-  lsft @z x c v b k m _ _ @/ rsft
-  lctl lmet lalt spc ralt rmet rctl
+  _           q w f p g j l u y ; _ _ _
+  @my_caps    a r s t d h n e i o _ _
+  @my_lsft @my_z x c v b k m _ _ @my_/ @my_rsft
+  lctl lmet lalt spc @my_ralt rmet @my_rctl
+  _ _ _ _ _ _ _ _
+  @my_spc)
+
+(deflayer mod
+  _ _ _ _ _ _ _ _ _ _ _ _ _ _
+  esc f1 f2 f3 f4 f5 f6 f7 f8 f9 f10 f11 f12 del
+  _ _ _      @w_up _       _ _    pgup up   pgdn _ _ _ _
+  _ _ @w_lft @w_dn @w_rght _ home lft  down rght end _ (multi lsft ret)
+  _ _ _ _ _ _ _ _ _ _ _ _
+  _ _ _ _ _ _ _
   _ _ _ _ _ _ _ _
   _)
