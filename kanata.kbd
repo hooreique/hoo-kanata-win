@@ -13,21 +13,21 @@
   my_/ (tap-hold-release-timeout 200 400 / lctl /))
 
 (defalias
-  my_lsft (tap-hold-press-timeout 200 400 f21 lsft lsft)
-  my_ralt (tap-hold-press-timeout 200 400 f22 ralt ralt)
-  my_rsft (tap-hold-press-timeout 200 400 f23 rsft rsft)
-  my_rmet (tap-hold-press-timeout 200 400 f24 rmet rmet)
-  my_rctl (tap-hold-press-timeout 200 400 del rctl rctl))
+  my_lsft (tap-hold-press 200 200 f21 lsft)
+  my_ralt (tap-hold-press 200 200 f22 ralt)
+  my_rsft (tap-hold-press 200 200 f23 rsft)
+  my_rmet (tap-hold-press 200 200 f24 rmet)
+  my_rctl (tap-hold-press-timeout 200 200 del rctl del))
 
 (defalias
-  my_caps (tap-hold-press 200 400 (multi f21 esc) (layer-while-held mod))
-  my_spc (tap-hold-press-timeout 200 400 spc (layer-while-held mod) spc))
+  my_caps (tap-hold-press-timeout 200 200 (multi f21 esc) (layer-while-held mod) esc)
+  my_spc  (tap-hold-press-timeout 200 200 spc             (layer-while-held mod) spc))
 
 (defalias
-  w_up (🖱☸↑ 50 120)
-  w_dn (🖱☸↓ 50 120)
-  w_lft (🖱☸← 50 120)
-  w_rght (🖱☸→ 50 120))
+  w_u (🖱☸↑ 50 120)
+  w_d (🖱☸↓ 50 120)
+  w_l (🖱☸← 50 120)
+  w_r (🖱☸→ 50 120))
 
 (deflayer base
   _ _ _ _ _ _ _ _ _ _ _ _ _ _
@@ -35,15 +35,15 @@
   _           q w f p g j l u y ; _ _ _
   @my_caps    a r s t d h n e i o _ _
   @my_lsft @my_z x c v b k m _ _ @my_/ @my_rsft
-  lctl lmet lalt spc @my_ralt rmet @my_rctl
+  _ _ _       _      @my_ralt @my_rmet @my_rctl
   _ _ _ _ _ _ _ _
   @my_spc)
 
 (deflayer mod
   _ _ _ _ _ _ _ _ _ _ _ _ _ _
-  esc f1 f2 f3 f4 f5 f6 f7 f8 f9 f10 f11 f12 del
-  _   _ _      @w_up _       _ _    pgup up   pgdn _ _ _ lrld
-  esc _ @w_lft @w_dn @w_rght _ home lft  down rght end _ (multi lsft ret)
+  caps f1 f2 f3 f4 f5 f6 f7 f8 f9 f10 f11 f12 del
+  _ _ _    @w_u _    _ _    pgup up   pgdn _ _ _ lrld
+  _ _ @w_l @w_d @w_r _ home lft  down rght end _ (multi lsft ret)
   _ _ _ _ _ _ _ _ _ _ _ _
   _ _ _ _ _ _ _
   _ _ _ _ _ _ _ _
