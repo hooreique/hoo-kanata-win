@@ -6,7 +6,7 @@
   lsft z x c v b n m , . / rsft
   lctl lmet lalt spc ralt rmet rctl
   up down lft rght home end pgup pgdn
-  kp0)
+  kp0 f20)
 
 (defalias
   my_z (tap-hold-release-timeout 200 400 z lctl z)
@@ -37,7 +37,7 @@
   @my_lsft @my_z x c v b k m _ _ @my_/ @my_rsft
   _ _ _       _      @my_ralt @my_rmet @my_rctl
   _ _ _ _ _ _ _ _
-  @my_spc)
+  @my_spc (macro C-\ C-\))
 
 (deflayer mod
   _ _ _ _ _ _ _ _ _ _ _ _ _ _
@@ -47,4 +47,4 @@
   _ _ _ _ _ _ _ _ _ _ _ _
   _ _ _ _ _ _ _
   _ _ _ _ _ _ _ _
-  _)
+  _ _)
