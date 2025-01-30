@@ -6,7 +6,7 @@
   lsft z x c v b n m , . / rsft
   lctl lmet lalt spc ralt rmet rctl
   up down lft rght home end pgup pgdn
-  kp0 f20)
+  kp0 kp1 f20)
 
 (defalias
   my_z (tap-hold-release-timeout 200 400 z lctl z)
@@ -20,8 +20,8 @@
   my_rctl (tap-hold-press-timeout 200 200 del rctl del))
 
 (defalias
-  my_caps (tap-hold-press-timeout 200 200 (multi f21 esc) (layer-while-held mod) esc)
-  my_spc  (tap-hold-press-timeout 200 200 spc             (layer-while-held mod) spc))
+  my_esc (tap-hold-press-timeout 200 200 (multi f21 esc) (layer-while-held mod) esc)
+  my_spc (tap-hold-press-timeout 200 200 spc             (layer-while-held mod) spc))
 
 (defalias
   w_u (🖱☸↑ 50 120)
@@ -33,11 +33,11 @@
   _ _ _ _ _ _ _ _ _ _ _ _ _ _
   _ _ _ _ _ _ _ _ _ _ _ _ _ _
   _           q w f p g j l u y ; _ _ _
-  @my_caps    a r s t d h n e i o _ _
+  @my_esc     a r s t d h n e i o _ _
   @my_lsft @my_z x c v b k m _ _ @my_/ @my_rsft
   _ _ _       _      @my_ralt @my_rmet @my_rctl
   _ _ _ _ _ _ _ _
-  @my_spc (macro C-\ C-\))
+  @my_spc @my_esc (macro C-\ C-\))
 
 (deflayer mod
   _ _ _ _ _ _ _ _ _ _ _ _ _ _
@@ -47,4 +47,4 @@
   _ _ _ _ _ _ _ _ _ _ (multi lalt home) _
   _ _ _ _ _ _ _
   _ _ _ _ _ _ _ _
-  _ _)
+  _ _ _)
