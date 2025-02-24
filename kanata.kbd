@@ -20,8 +20,8 @@
   my_rctl (tap-hold-press-timeout 200 200 del rctl del))
 
 (defalias
-  my_esc (tap-hold-press-timeout 200 200 (multi f21 esc) (layer-while-held mod) esc)
-  my_spc (tap-hold-press-timeout 200 200 spc             (layer-while-held mod) spc))
+  my_esc (tap-hold-press 200 200 (multi f21 esc) (layer-while-held mod))
+  my_spc (tap-hold-press-timeout 200 200 spc (layer-while-held mod) spc))
 
 (defalias
   w_u (🖱☸↑ 50 120)
